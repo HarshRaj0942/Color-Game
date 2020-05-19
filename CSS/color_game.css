@@ -1,0 +1,32 @@
+body {
+  background-color: #232323;
+}
+
+.square {
+  width: 30%;
+  background: purple;
+  padding-bottom: 30%;
+  float: left;
+  margin: 1.66%;
+}
+
+.square :hover {
+  cursor: grab;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+#message {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
