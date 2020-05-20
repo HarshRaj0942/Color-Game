@@ -2,6 +2,9 @@ body {
   background-color: #232323;
 }
 
+#main {
+  overflow: hidden;
+}
 .square {
   width: 30%;
   background: purple;
@@ -23,10 +26,23 @@ h1 {
   color: aliceblue;
 }
 
-#message {
+/* #message {
   color: white;
-}
+} */
 
 h2 {
   color: white;
+}
+
+#stripe {
+
+  display: flex;
+  max-width: 100%;
+  background-color: aliceblue;
+  justify-content: space-around;
+  color: black;
+}
+
+.selected {
+  background-color: chocolate;
 }

@@ -1,6 +1,6 @@
 //for PRO mode, we generate 6 colors and for EASY, we generate 3 colors.
-var colors = generateRandomColors(6);
-
+var numSquares = 6;
+var colors = generateRandomColors(numSquares);
 
 var body = document.getElementsByTagName("body");
 var squares = document.querySelectorAll(".square");
@@ -9,12 +9,34 @@ var pickedcolor = randomizeColor();
 var clickedColor = undefined;
 var message = document.querySelector("#message");
 var displaycolor = document.getElementById("displayColor");
+
+var event = document.querySelector("#event");
+var easy = document.querySelector("#easyBtn");
+var pro = document.querySelector("#proBtn");
+
 displaycolor.textContent = pickedcolor;
+
+event.addEventListener("click", function () {
+  //generate random colors for the square
+
+  colors = generateRandomColors(numSquares);
+
+  for (var i = 0; i < colors.length; i++) console.log(colors[i]);
+  //pick a random color among the generated ones to be guesses
+
+  pickedcolor = randomColor();
+  displaycolor.textContent = pickedcolor;
+
+  //assign the generated colors to the squares
+  for (var i = 0; i < squares.length; i++) {
+    //add colors to the squares
+    squares[i].style.backgroundColor = colors[i];
+  }
+});
 
 for (var i = 0; i < squares.length; i++) {
   //add colors to the squares
   squares[i].style.backgroundColor = colors[i];
-
 
   //add click listeners to the squares
 
@@ -23,6 +45,7 @@ for (var i = 0; i < squares.length; i++) {
     if (clickedColor === pickedcolor) {
       message.textContent = "Correct!";
       changeColor(clickedColor);
+      event.textContent = "Play Again!";
     } else {
       this.style.backgroundColor = "#232323";
       message.textContent = "Try Again!";
@@ -65,3 +88,61 @@ function randomColor() {
 
   return color;
 }
+
+//upon clicking the mode buttons - EASY and PRO!
+
+easy.addEventListener("click", function () {
+  pro.classList.remove("selected");
+  easy.classList.add("selected");
+
+  //generate 3 random colors
+  numSquares = 3;
+
+
+  colors = generateRandomColors(numSquares);
+
+  for(var i=0;i<colors.length;i++)
+    console.log(colors[i]);
+
+  //generate a pickedColor to be guessed
+
+  pickedcolor = randomizeColor();
+
+  //assign the colors to first three squares and hide the bottom three.
+
+  for (var i = 0; i < squares.length; i++) {
+    if (colors[i]) {
+      squares[i].style.backgroundColor = colors[i];
+    } 
+    else 
+    {
+      squares[i].style.display = "none";
+    }
+  }
+
+  displaycolor.textContent = pickedcolor;
+});
+
+pro.addEventListener("click", function () {
+  easy.classList.remove("selected");
+  pro.classList.add("selected");
+
+  //this is the default game mode
+  //generate 6 random colors
+
+  numSquares = 6;
+  colors = generateRandomColors(numSquares);
+
+  //generate a pickedColor to be guessed
+
+  pickedcolor = randomizeColor();
+
+  //assign the colors to first three squares and hide the bottom three.
+
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+    squares[i].style.display="block";
+  }
+
+  displaycolor.textContent = pickedcolor;
+});
