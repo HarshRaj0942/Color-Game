@@ -1,5 +1,6 @@
 body {
   background-color: #232323;
+  margin: 0;
 }
 
 #main {
@@ -11,10 +12,19 @@ body {
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
-.square :hover {
-  cursor: grab;
+/* .fade_out {
+  animation: fade-out 1s;
+  animation-duration: ;
+} */
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
 }
 
 .container {
@@ -24,18 +34,16 @@ body {
 
 h1 {
   color: aliceblue;
+  margin-top: 0;
+  
 }
-
-/* #message {
-  color: white;
-} */
 
 h2 {
   color: white;
+  margin-bottom: 0;
 }
 
 #stripe {
-
   display: flex;
   max-width: 100%;
   background-color: aliceblue;
@@ -45,4 +53,16 @@ h2 {
 
 .selected {
   background-color: chocolate;
+}
+
+input[type="button"] {
+  outline: none;
+}
+
+#heading {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
 }

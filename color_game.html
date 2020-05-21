@@ -7,18 +7,24 @@
     <title>Color Game</title>
   </head>
   <body>
-    <h1>The Great Color Game</h1>
-    <h2>Click which square has the color <span id="displayColor">RGB</span></h2>
+    <div id="heading">
+      <h1>The Great Color Game</h1>
+      <h2>
+        Click which square has the color <span id="displayColor">RGB</span>
+      </h2>
+    </div>
 
-   
     <div id="stripe">
-      <button type="button" id="event">New Colors!</button>
+      <button type="button" id="event" style="border: none;">
+        New Colors!
+      </button>
       <span id="message"></span>
-     <div>
-       <button type="button" id="easyBtn">EASY</button>
-      <button class="selected" type="button" id="proBtn">PRO</button>
-    </div> 
-      
+      <div>
+        <button class="mode" type="button" style="border: none;">EASY</button>
+        <button class="mode selected" type="button" style="border: none;">
+          PRO
+        </button>
+      </div>
     </div>
 
     <div id="main" class="container">
